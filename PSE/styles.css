@@ -1,0 +1,154 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+header button {
+  margin: 5px;
+  cursor: pointer;
+}
+
+header select {
+  margin: 5px;
+  cursor: pointer;
+}
+
+h1 {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* dark mode
+@media (prefers-color-scheme: white) {
+  body {
+    background-color: #222222;
+    color: #27e8a7;
+  }
+}
+*/
+
+#logo {
+  width: 60px;
+  cursor: pointer;
+}
+
+#search {
+    margin: 5px;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+.dark-mode .element,
+.dark-mode .legend-item {
+  background-color: #333;
+  border-color: #fff;
+}
+
+/* Sicherstellen, dass Textfarbe bei aktiviertem Color Coding dunkel bleibt */
+.dark-mode .element.metal,
+.dark-mode .element.non-metal,
+.dark-mode .element.metalloid,
+.dark-mode .element.unknown,
+.dark-mode .legend {
+    color: black !important; /* Textfarbe bei Color Coding */
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.pse-container {
+    display: grid;
+    grid-template-columns: repeat(18);
+    gap: 10px;
+    justify-content: center;
+}
+
+.element {
+    position: relative;
+    width:78px;
+    height: 78px;
+    background-color: #fff;
+    border: 2px solid #333;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.element:hover {
+    transform: scale(1.1);
+}
+
+.element .symbol {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.element .number {
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.element .name {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.element .price {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.metal {
+    background-color: #cce5ff !important;
+}
+
+.non-metal {
+    background-color: #d4edda !important;
+}
+
+.metalloid {
+    background-color: #ffcccc !important;
+}
+
+.unknown {
+    background-color: #fff3cd !important;
+}
+
+.price {
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.element:hover .price {
+    visibility: visible;
+    opacity: 1;
+}
+
+.legend {
+    margin-top: 50px;
+    display: none;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #333;
+}

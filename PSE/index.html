@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>elementprices</title>
+  <link rel="icon" type="image/x-icon" href="Logo.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img src="Logo.png" alt="Logo" id="logo">
+    </a>
+
+    <h1>periodic table of the elements</h1>
+
+    <input type="text" id="search" placeholder="Search for an element ..." oninput="filterElements()"></input>
+
+    <select>
+      <option>English</option>
+      <option>Deutsch</option>
+      <option>Dansk</option>
+    </select>
+
+    <div id="settings">
+      <select id="colorCoding">
+        <option value="none">Colorless</option>
+        <option value="type">Color</option>
+      </select>
+    </div>
+
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">dark mode</button>
+    <!--<button onclick="window.location.href='signup.html';">Sign Up</button>
+    <button onclick="window.location.href='login.html';">Log In</button>-->
+  </header>
+
+  <main>
+    <div class="pse-container">
+      <!-- 1. Period -->
+      <div class="element" id="H" style="grid-column: 1;">
+        <div class="number">1</div>
+        <div class="symbol">H</div>
+        <div class="name">Hydrogen</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="He" style="grid-column: 18;">
+        <div class="number">2</div>
+        <div class="symbol">He</div>
+        <div class="name">Helium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 2. Period -->
+      <div class="element" id="Li" style="grid-column: 1;">
+        <div class="number">3</div>
+        <div class="symbol">Li</div>
+        <div class="name">Lithium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Be" style="grid-column: 2;">
+        <div class="number">4</div>
+        <div class="symbol">Be</div>
+        <div class="name">Berylium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="B" style="grid-column: 13;">
+        <div class="number">5</div>
+        <div class="symbol">B</div>
+        <div class="name">Boron</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="C" style="grid-column: 14;">
+        <div class="number">6</div>
+        <div class="symbol">C</div>
+        <div class="name">Carbon</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="N" style="grid-column: 15;">
+        <div class="number">7</div>
+        <div class="symbol">N</div>
+        <div class="name">Nitrogen</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="O" style="grid-column: 16;">
+        <div class="number">8</div>
+        <div class="symbol">O</div>
+        <div class="name">Oxygen</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="F" style="grid-column: 17;">
+        <div class="number">9</div>
+        <div class="symbol">F</div>
+        <div class="name">Fluorine</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ne" style="grid-column: 18;">
+        <div class="number">10</div>
+        <div class="symbol">Ne</div>
+        <div class="name">Neon</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 3. Period -->
+      <div class="element" id="Na" style="grid-column: 1;">
+        <div class="number">11</div>
+        <div class="symbol">Na</div>
+        <div class="name">Sodium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Mg" style="grid-column: 2;">
+        <div class="number">12</div>
+        <div class="symbol">Mg</div>
+        <div class="name">Magnesium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Al" style="grid-column: 13;">
+        <div class="number">13</div>
+        <div class="symbol">Al</div>
+        <div class="name">Aluminium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Si" style="grid-column: 14;">
+        <div class="number">14</div>
+        <div class="symbol">Si</div>
+        <div class="name">Silicon</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="P" style="grid-column: 15;">
+        <div class="number">15</div>
+        <div class="symbol">P</div>
+        <div class="name">Phosphorus</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="S" style="grid-column: 16;">
+        <div class="number">16</div>
+        <div class="symbol">S</div>
+        <div class="name">Sulfur</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cl" style="grid-column: 17;">
+        <div class="number">17</div>
+        <div class="symbol">Cl</div>
+        <div class="name">Chlorine</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ar" style="grid-column: 18;">
+        <div class="number">18</div>
+        <div class="symbol">Ar</div>
+        <div class="name">Argon</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 4. Period -->
+      <div class="element" id="K" style="grid-column: 1;">
+        <div class="number">19</div>
+        <div class="symbol">K</div>
+        <div class="name">Potassium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ca" style="grid-column: 2;">
+        <div class="number">20</div>
+        <div class="symbol">Ca</div>
+        <div class="name">Calcium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Sc" style="grid-column: 3;">
+        <div class="number">21</div>
+        <div class="symbol">Sc</div>
+        <div class="name">Scandium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ti" style="grid-column: 4;">
+        <div class="number">22</div>
+        <div class="symbol">Ti</div>
+        <div class="name">Titanium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="V" style="grid-column: 5;">
+        <div class="number">23</div>
+        <div class="symbol">V</div>
+        <div class="name">Vanadium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cr" style="grid-column: 6;">
+        <div class="number">24</div>
+        <div class="symbol">Cr</div>
+        <div class="name">Chromium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Mn" style="grid-column: 7;">
+        <div class="number">25</div>
+        <div class="symbol">Mn</div>
+        <div class="name">Manganese</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Fe" style="grid-column: 8;">
+        <div class="number">26</div>
+        <div class="symbol">Fe</div>
+        <div class="name">Iron</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Co" style="grid-column: 9;">
+        <div class="number">27</div>
+        <div class="symbol">Co</div>
+        <div class="name">Cobalt</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ni" style="grid-column: 10;">
+        <div class="number">28</div>
+        <div class="symbol">Ni</div>
+        <div class="name">Nickel</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cu" style="grid-column: 11;">
+        <div class="number">29</div>
+        <div class="symbol">Cu</div>
+        <div class="name">Copper</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Zn" style="grid-column: 12;">
+        <div class="number">30</div>
+        <div class="symbol">Zn</div>
+        <div class="name">Zinc</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ga" style="grid-column: 13;">
+        <div class="number">31</div>
+        <div class="symbol">Ga</div>
+        <div class="name">Gallium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ge" style="grid-column: 14;">
+        <div class="number">32</div>
+        <div class="symbol">Ge</div>
+        <div class="name">Germanium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="As" style="grid-column: 15;">
+        <div class="number">33</div>
+        <div class="symbol">As</div>
+        <div class="name">Arsenic</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Se" style="grid-column: 16;">
+        <div class="number">34</div>
+        <div class="symbol">Se</div>
+        <div class="name">Selenium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Br" style="grid-column: 17;">
+        <div class="number">35</div>
+        <div class="symbol">Br</div>
+        <div class="name">Bromine</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Kr" style="grid-column: 18;">
+        <div class="number">36</div>
+        <div class="symbol">Kr</div>
+        <div class="name">Krypton</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 5. Period -->
+      <div class="element" id="Rb" style="grid-column: 1;">
+        <div class="number">37</div>
+        <div class="symbol">Rb</div>
+        <div class="name">Rubidium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Sr" style="grid-column: 2;">
+        <div class="number">38</div>
+        <div class="symbol">Sr</div>
+        <div class="name">Strontium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Y" style="grid-column: 3;">
+        <div class="number">39</div>
+        <div class="symbol">Y</div>
+        <div class="name">Yttrium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Zr" style="grid-column: 4;">
+        <div class="number">40</div>
+        <div class="symbol">Zr</div>
+        <div class="name">Zirconium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Nb" style="grid-column: 5;">
+        <div class="number">41</div>
+        <div class="symbol">Nb</div>
+        <div class="name">Niobium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Mo" style="grid-column: 6;">
+        <div class="number">42</div>
+        <div class="symbol">Mo</div>
+        <div class="name">Molybdenum</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Tc" style="grid-column: 7;">
+        <div class="number">43</div>
+        <div class="symbol">Tc</div>
+        <div class="name">Technetium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ru" style="grid-column: 8;">
+        <div class="number">44</div>
+        <div class="symbol">Ru</div>
+        <div class="name">Ruthenium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Rh" style="grid-column: 9;">
+        <div class="number">45</div>
+        <div class="symbol">Rh</div>
+        <div class="name">Rhodium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pd" style="grid-column: 10;">
+        <div class="number">46</div>
+        <div class="symbol">Pd</div>
+        <div class="name">Palladium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ag" style="grid-column: 11;">
+        <div class="number">47</div>
+        <div class="symbol">Ag</div>
+        <div class="name">Silver</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cd" style="grid-column: 12;">
+        <div class="number">48</div>
+        <div class="symbol">Cd</div>
+        <div class="name">Cadmium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="In" style="grid-column: 13;">
+        <div class="number">49</div>
+        <div class="symbol">In</div>
+        <div class="name">Indium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Sn" style="grid-column: 14;">
+        <div class="number">50</div>
+        <div class="symbol">Sn</div>
+        <div class="name">Tin</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Sb" style="grid-column: 15;">
+        <div class="number">51</div>
+        <div class="symbol">Sb</div>
+        <div class="name">Antimony</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Te" style="grid-column: 16;">
+        <div class="number">52</div>
+        <div class="symbol">Te</div>
+        <div class="name">Tellurium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="I" style="grid-column: 17;">
+        <div class="number">53</div>
+        <div class="symbol">I</div>
+        <div class="name">Iondine</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Xe" style="grid-column: 18;">
+        <div class="number">54</div>
+        <div class="symbol">Xe</div>
+        <div class="name">Xenon</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 6. Period -->
+      <div class="element" id="Cs" style="grid-column: 1;">
+        <div class="number">55</div>
+        <div class="symbol">Cs</div>
+        <div class="name">Cesium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ba" style="grid-column: 2;">
+        <div class="number">56</div>
+        <div class="symbol">Ba</div>
+        <div class="name">Barium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" style="grid-column: 3;">
+        <div class="number">57 – 71</div>
+      </div>
+      <div class="element" id="Hf" style="grid-column: 4;">
+        <div class="number">72</div>
+        <div class="symbol">Hf</div>
+        <div class="name">Hafnium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ta" style="grid-column: 5;">
+        <div class="number">73</div>
+        <div class="symbol">Ta</div>
+        <div class="name">Tantalum</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="W" style="grid-column: 6;">
+        <div class="number">74</div>
+        <div class="symbol">W</div>
+        <div class="name">Tungsten</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Re" style="grid-column: 7;">
+        <div class="number">75</div>
+        <div class="symbol">Re</div>
+        <div class="name">Rhenium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Os" style="grid-column: 8;">
+        <div class="number">76</div>
+        <div class="symbol">Os</div>
+        <div class="name">Osmium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ir" style="grid-column: 9;">
+        <div class="number">77</div>
+        <div class="symbol">Ir</div>
+        <div class="name">Iridium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pt" style="grid-column: 10;">
+        <div class="number">78</div>
+        <div class="symbol">Pt</div>
+        <div class="name">Platinum</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Au" style="grid-column: 11;">
+        <div class="number">79</div>
+        <div class="symbol">Au</div>
+        <div class="name">Gold</div>
+        <div class="price" id="goldPrice">loading ....</div>
+      </div>
+      <div class="element" id="Hg" style="grid-column: 12;">
+        <div class="number">80</div>
+        <div class="symbol">Hg</div>
+        <div class="name">Mercury</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Tl" style="grid-column: 13;">
+        <div class="number">81</div>
+        <div class="symbol">Tl</div>
+        <div class="name">Thallium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pb" style="grid-column: 14;">
+        <div class="number">82</div>
+        <div class="symbol">Pb</div>
+        <div class="name">Lead</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Bi" style="grid-column: 15;">
+        <div class="number">83</div>
+        <div class="symbol">Bi</div>
+        <div class="name">Bismuth</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Po" style="grid-column: 16;">
+        <div class="number">84</div>
+        <div class="symbol">Po</div>
+        <div class="name">Polonium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="At" style="grid-column: 17;">
+        <div class="number">85</div>
+        <div class="symbol">At</div>
+        <div class="name">Astatine</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Rn" style="grid-column: 18;">
+        <div class="number">86</div>
+        <div class="symbol">Rn</div>
+        <div class="name">Radon</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 7. Period -->
+      <div class="element" id="Fr" style="grid-column: 1;">
+        <div class="number">87</div>
+        <div class="symbol">Fr</div>
+        <div class="name">Francium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ra" style="grid-column: 2;">
+        <div class="number">88</div>
+        <div class="symbol">Ra</div>
+        <div class="name">Radium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" style="grid-column: 3;">
+        <div class="number">89 – 103</div>
+      </div>
+      <div class="element" id="Rf" style="grid-column: 4;">
+        <div class="number">104</div>
+        <div class="symbol">Rf</div>
+        <div class="name">Rutherfordium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Db" style="grid-column: 5;">
+        <div class="number">105</div>
+        <div class="symbol">Db</div>
+        <div class="name">Dubnium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Sg" style="grid-column: 6;">
+        <div class="number">106</div>
+        <div class="symbol">Sg</div>
+        <div class="name">Seaborgium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Bh" style="grid-column: 7;">
+        <div class="number">107</div>
+        <div class="symbol">Bh</div>
+        <div class="name">Bohrium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Hs" style="grid-column: 8;">
+        <div class="number">108</div>
+        <div class="symbol">Hs</div>
+        <div class="name">Hassium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Mt" style="grid-column: 9;">
+        <div class="number">109</div>
+        <div class="symbol">Mt</div>
+        <div class="name">Meitnerium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ds" style="grid-column: 10;">
+        <div class="number">110</div>
+        <div class="symbol">Ds</div>
+        <div class="name">Darmstadtium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Rg" style="grid-column: 11;">
+        <div class="number">111</div>
+        <div class="symbol">Rg</div>
+        <div class="name">Roentgenium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cn" style="grid-column: 12;">
+        <div class="number">112</div>
+        <div class="symbol">Cn</div>
+        <div class="name">Copernicium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Nh" style="grid-column: 13;">
+        <div class="number">113</div>
+        <div class="symbol">Nh</div>
+        <div class="name">Nihonium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Fl" style="grid-column: 14;">
+        <div class="number">114</div>
+        <div class="symbol">Fl</div>
+        <div class="name">Flerovium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Mc" style="grid-column: 15;">
+        <div class="number">115</div>
+        <div class="symbol">Mc</div>
+        <div class="name">Moscovium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Lv" style="grid-column: 16;">
+        <div class="number">116</div>
+        <div class="symbol">Lv</div>
+        <div class="name">Livermorium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ts" style="grid-column: 17;">
+        <div class="number">117</div>
+        <div class="symbol">Ts</div>
+        <div class="name">Tennessine</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Og" style="grid-column: 18;">
+        <div class="number">118</div>
+        <div class="symbol">Og</div>
+        <div class="name">Oganesson</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 6. Period -->
+      <div class="element" id="La" style="grid-column: 4; margin-top: 80px;">
+        <div class="number">57</div>
+        <div class="symbol">La</div>
+        <div class="name">Lanthanium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ce" style="grid-column: 5; margin-top: 80px;">
+        <div class="number">58</div>
+        <div class="symbol">Ce</div>
+        <div class="name">Cerium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pr" style="grid-column: 6; margin-top: 80px;">
+        <div class="number">59</div>
+        <div class="symbol">Pr</div>
+        <div class="name">Praseodymium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Nd" style="grid-column: 7; margin-top: 80px;">
+        <div class="number">60</div>
+        <div class="symbol">Nd</div>
+        <div class="name">Neodymium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pm" style="grid-column: 8; margin-top: 80px;">
+        <div class="number">61</div>
+        <div class="symbol">Pm</div>
+        <div class="name">Promethium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Sm" style="grid-column: 9; margin-top: 80px;">
+        <div class="number">62</div>
+        <div class="symbol">Sm</div>
+        <div class="name">Samarium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Eu" style="grid-column: 10; margin-top: 80px;">
+        <div class="number">63</div>
+        <div class="symbol">Eu</div>
+        <div class="name">Europium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Gd" style="grid-column: 11; margin-top: 80px;">
+        <div class="number">64</div>
+        <div class="symbol">Gd</div>
+        <div class="name">Gadolinium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Tb" style="grid-column: 12; margin-top: 80px;">
+        <div class="number">65</div>
+        <div class="symbol">Tb</div>
+        <div class="name">Terbium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Dy" style="grid-column: 13; margin-top: 80px;">
+        <div class="number">66</div>
+        <div class="symbol">Dy</div>
+        <div class="name">Dysprosium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Ho" style="grid-column: 14; margin-top: 80px;">
+        <div class="number">67</div>
+        <div class="symbol">Ho</div>
+        <div class="name">Holmium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Er" style="grid-column: 15; margin-top: 80px;">
+        <div class="number">68</div>
+        <div class="symbol">Er</div>
+        <div class="name">Erbium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Tm" style="grid-column: 16; margin-top: 80px;">
+        <div class="number">69</div>
+        <div class="symbol">Tm</div>
+        <div class="name">Thulium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Yb" style="grid-column: 17; margin-top: 80px;">
+        <div class="number">70</div>
+        <div class="symbol">Yb</div>
+        <div class="name">Ytterbium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Lu" style="grid-column: 18; margin-top: 80px;">
+        <div class="number">71</div>
+        <div class="symbol">Lu</div>
+        <div class="name">Lutetium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <!-- 7. Period -->
+      <div class="element" id="Ac" style="grid-column: 4;">
+        <div class="number">89</div>
+        <div class="symbol">Ac</div>
+        <div class="name">Actinium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Th" style="grid-column: 5;">
+        <div class="number">90</div>
+        <div class="symbol">Th</div>
+        <div class="name">Thorium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pa" style="grid-column: 6;">
+        <div class="number">91</div>
+        <div class="symbol">Pa</div>
+        <div class="name">Protactinium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="U" style="grid-column: 7;">
+        <div class="number">92</div>
+        <div class="symbol">U</div>
+        <div class="name">Uranium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Np" style="grid-column: 8;">
+        <div class="number">93</div>
+        <div class="symbol">Np</div>
+        <div class="name">Neptunium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Pu" style="grid-column: 9;">
+        <div class="number">94</div>
+        <div class="symbol">Pu</div>
+        <div class="name">Plutonium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Am" style="grid-column: 10;">
+        <div class="number">95</div>
+        <div class="symbol">Am</div>
+        <div class="name">Americium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cm" style="grid-column: 11;">
+        <div class="number">96</div>
+        <div class="symbol">Cm</div>
+        <div class="name">Curium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Bk" style="grid-column: 12;">
+        <div class="number">97</div>
+        <div class="symbol">Bk</div>
+        <div class="name">Berkelium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Cf" style="grid-column: 13;">
+        <div class="number">98</div>
+        <div class="symbol">Cf</div>
+        <div class="name">Californium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Es" style="grid-column: 14;">
+        <div class="number">99</div>
+        <div class="symbol">Es</div>
+        <div class="name">Einsteinium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Fm" style="grid-column: 15;">
+        <div class="number">100</div>
+        <div class="symbol">Fm</div>
+        <div class="name">Fermium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Md" style="grid-column: 16;">
+        <div class="number">101</div>
+        <div class="symbol">Md</div>
+        <div class="name">Mendelevium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="No" style="grid-column: 17;">
+        <div class="number">102</div>
+        <div class="symbol">No</div>
+        <div class="name">Nobelium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+      <div class="element" id="Lr" style="grid-column: 18;">
+        <div class="number">103</div>
+        <div class="symbol">Lr</div>
+        <div class="name">Lawrencium</div>
+        <div class="price" id="">loading ...</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="legend">
+    <div class="legend-item metal">Metal</div>
+    <div class="legend-item non-metal">Non-metal</div>
+    <div class="legend-item metalloid">Metalloid</div>
+    <div class="legend-item unknown">Unknown</div>
+  </div>
+
+  <footer>
+    <p>created by strohhalm</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
